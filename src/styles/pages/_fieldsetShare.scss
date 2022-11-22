@@ -1,0 +1,113 @@
+.form__share {
+  border-bottom: rgb(197, 84, 180) 1px solid;
+  margin-right: 19px;
+  margin-left: 20px;
+  margin-top: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  &__boxOne {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+    padding-bottom: 10px;
+  }
+  &__title {
+    flex-grow: 1;
+    color: rgb(160, 30, 140);
+    font-family: $font-main;
+    font-size: rem(18);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: rem(7);
+  }
+  &__nodesIcon {
+    padding-right: 12px;
+    font-size: rem(18);
+  }
+  &__boxTwo {
+    width: 100%;
+    height: 93%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 30px;
+  }
+  &__btn {
+    background-color: rgb(160, 30, 140);
+    border-radius: 12px;
+    border-style: none;
+    color: #ffffff;
+    font-family: $font-main;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 13px 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  &__btn:disabled {
+    background-color: rgb(169, 144, 165);
+  }
+  &__cardIcon {
+    padding-right: 10px;
+  }
+  @include tablet {
+    margin-left: 40px;
+    margin-right: 30px;
+  }
+}
+.form__collapsible {
+  height: 20vh;
+  border-bottom: #d8d8d8 1px solid;
+  margin-right: 19px;
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__cardText {
+    font-size: rem(18);
+    font-weight: 600;
+    margin-bottom: rem(5);
+    text-align: center;
+    color: rgb(153, 28, 134);
+  }
+  &__errorText {
+    color: rgb(160, 30, 140);
+    font-size: rem(14);
+    font-weight: 600;
+    margin-top: rem(15);
+    margin-bottom: rem(5);
+    text-align: center;
+  }
+  &__cardLink {
+    color: rgb(214, 100, 197);
+    font-size: rem(12);
+    width: 292px;
+    height: 17px;
+    margin: 5px 10px 10px 1px;
+  }
+  &__shareBtn {
+    background-color: $twitter-color;
+    border-radius: 3px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px 0 30px;
+  }
+}
+.hidden {
+  //display: none; //TO-DO: JS
+}
+.fa-twitter {
+  margin-right: 10px;
+}
+.collapsed {
+  display: none;
+}
