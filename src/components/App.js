@@ -1,7 +1,24 @@
+import { useState } from 'react';
 import '../styles/App.scss';
 import logoPlain from '../images/logo_plain.png';
 
 function App() {
+  const [person, setPerson] = useState({
+    palette: '',
+    name: '',
+    job: '',
+    phone: '',
+    email: '',
+    linkedin: '',
+    github: '',
+    photo: '',
+  });
+
+  const handleInput = (ev) => {
+    const inputValue = ev.target.value;
+    const inputName = ev.target.name;
+    setPerson({ ...person, [inputName]: inputValue });
+  };
   return (
     <div>
       <header className="header">
@@ -45,18 +62,16 @@ function App() {
           <article className="preview__article">
             <div className="preview__box1 palette1-color2 js_preview_box1">
               <p className="preview__box1__name palette1-color1 js_preview_name">
-                Nombre Apellido
+                {person.name}
               </p>
-              <p className="preview__box1__job js_preview_job">
-                Front-end developer
-              </p>
+              <p className="preview__box1__job js_preview_job">{person.job}</p>
             </div>
             <div className="preview__box2 js_preview_picture js_cardPic"></div>
             <nav className="preview__nav">
               <ul className="preview__media">
                 <li className="preview__media__item palette1-color3  js_media_item">
                   <a
-                    href="/"
+                    href={`tel:+34 ${person.phone}`}
                     className="preview__media__link js_preview_link"
                     id="phone"
                   >
@@ -65,7 +80,7 @@ function App() {
                 </li>
                 <li className="preview__media__item palette1-color3 js_media_item">
                   <a
-                    href="/"
+                    href={`mailto:${person.email}`}
                     className="preview__media__link js_preview_link"
                     id="email"
                   >
@@ -74,7 +89,7 @@ function App() {
                 </li>
                 <li className="preview__media__item palette1-color3 js_media_item">
                   <a
-                    href="/"
+                    href={person.linkedin}
                     className="preview__media__link js_preview_link"
                     id="linkedin"
                   >
@@ -83,7 +98,7 @@ function App() {
                 </li>
                 <li className="preview__media__item palette1-color3 js_media_item">
                   <a
-                    href="/"
+                    href={person.github}
                     className="preview__media__link js_preview_link"
                     id="github"
                   >
@@ -180,6 +195,7 @@ function App() {
                 name="name"
                 placeholder="Ej: Sally hill"
                 pattern="[A-Za-z]"
+                onChange={handleInput}
               />
               <label className="form__fill__label" htmlFor="job">
                 Puesto
@@ -191,6 +207,7 @@ function App() {
                 name="job"
                 placeholder="Ej: Front-end unicorn"
                 pattern="[A-Za-z]"
+                onChange={handleInput}
               />
               <h2 className="form__fill__label">Imagen de perfil</h2>
               <div className="form__fill__boxThree">
@@ -219,6 +236,7 @@ function App() {
                 name="email"
                 placeholder="Ej: sally-hill@gmail.com"
                 pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$"
+                onChange={handleInput}
               />
               <label className="form__fill__label" htmlFor="phone">
                 Teléfono
@@ -230,6 +248,7 @@ function App() {
                 name="phone"
                 placeholder="Ej: 555-55-55-55"
                 pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}"
+                onChange={handleInput}
               />
               <label className="form__fill__label" htmlFor="linkedin-url">
                 Linkedin
@@ -240,7 +259,8 @@ function App() {
                 id="linkedin-url"
                 name="linkedin"
                 placeholder="Ej: linkedin.com/in/sally.hill"
-                pattern="/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/"
+                // pattern="/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/"
+                onChange={handleInput}
               />
               <label className="form__fill__label" htmlFor="github-url">
                 Github
@@ -251,7 +271,8 @@ function App() {
                 id="github-url"
                 name="github"
                 placeholder="Ej: @sally-hill"
-                pattern="/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/"
+                // pattern="/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/"
+                onChange={handleInput}
               />
             </section>
           </fieldset>
