@@ -21,6 +21,7 @@ function App() {
   };
   return (
     <div>
+    {/* <h1>Hola</h1> */}
       <header className="header">
         <a href="./index.html" className="header__link">
           <img
