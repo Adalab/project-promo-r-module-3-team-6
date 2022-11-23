@@ -73,17 +73,23 @@ function App() {
                   </a>
                 </li>
                 <li className={`preview__media__item palette${person.palette}-color3  js_media_item`}>
-                  <a href={`mailto:${person.email}`} className='preview__media__link js_preview_link' id='email'>
+                  <a
+                    href={`mailto:${person.email}`}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='preview__media__link js_preview_link'
+                    id='email'
+                  >
                     <i className='palette1-color1 js_card_icon fa-regular fa-envelope'></i>
                   </a>
                 </li>
                 <li className={`preview__media__item palette${person.palette}-color3  js_media_item`}>
-                  <a href={person.linkedin} className='preview__media__link js_preview_link' id='linkedin'>
+                  <a href={person.linkedin} target='_blank' rel='noreferrer' className='preview__media__link js_preview_link' id='linkedin'>
                     <i className='palette1-color1 js_card_icon fa-brands fa-linkedin-in'></i>
                   </a>
                 </li>
                 <li className={`preview__media__item palette${person.palette}-color3  js_media_item`}>
-                  <a href={person.github} className='preview__media__link js_preview_link' id='github'>
+                  <a href={person.github} target='_blank' rel='noreferrer' className='preview__media__link js_preview_link' id='github'>
                     <i className='palette1-color1 js_card_icon fa-brands fa-github-alt'></i>
                   </a>
                 </li>
@@ -167,7 +173,6 @@ function App() {
                 id='fullname'
                 name='name'
                 placeholder='Ej: Sally hill'
-                pattern='[A-Za-z]'
                 onChange={handleInput}
               />
               <label className='form__fill__label' htmlFor='job'>
@@ -179,7 +184,6 @@ function App() {
                 id='job'
                 name='job'
                 placeholder='Ej: Front-end unicorn'
-                pattern='[A-Za-z]'
                 onChange={handleInput}
               />
               <h2 className='form__fill__label'>Imagen de perfil</h2>
@@ -208,7 +212,7 @@ function App() {
                 id='email'
                 name='email'
                 placeholder='Ej: sally-hill@gmail.com'
-                pattern='^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'
+                pattern='^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
                 onChange={handleInput}
               />
               <label className='form__fill__label' htmlFor='phone'>
@@ -220,7 +224,7 @@ function App() {
                 id='phone'
                 name='phone'
                 placeholder='Ej: 555-55-55-55'
-                pattern='[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}'
+                pattern='[0-9]{3}-?[0-9]{2}-?[0-9]{2}-?[0-9]{2}'
                 onChange={handleInput}
               />
               <label className='form__fill__label' htmlFor='linkedin-url'>
@@ -232,7 +236,7 @@ function App() {
                 id='linkedin-url'
                 name='linkedin'
                 placeholder='Ej: linkedin.com/in/sally.hill'
-                // pattern="/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/"
+                pattern='^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$'
                 onChange={handleInput}
               />
               <label className='form__fill__label' htmlFor='github-url'>
