@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../styles/App.scss';
 import logoPlain from '../images/logo_plain.png';
+import logoFooter from '../images/logo_adalab_purple.png';
 
 function App() {
   const [person, setPerson] = useState({
@@ -248,7 +249,7 @@ function App() {
                 id='github-url'
                 name='github'
                 placeholder='Ej: @sally-hill'
-                // pattern="/^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/"
+                pattern='^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$'
                 onChange={handleInput}
               />
             </section>
@@ -279,7 +280,7 @@ function App() {
       <footer className='footer'>
         <small className='footer__copy'>Awesome profile-cards @2022</small>
         <div className='footer__logo'>
-          <img src='./assets/images/logo_adalab_purple.png' alt='Logo de Adalab' className='footer__logo__img' />
+          <img src={logoFooter} alt='Logo de Adalab' className='footer__logo__img' />
         </div>
       </footer>
     </div>
