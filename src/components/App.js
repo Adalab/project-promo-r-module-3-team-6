@@ -21,6 +21,29 @@ function App() {
 
     setPerson({ ...person, [inputName]: inputValue });
   };
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+  };
+
+  const handleReset = (ev) => {
+    ev.preventDefault();
+    setPerson({
+      palette: '1',
+      name: 'Nombre Apellidos',
+      job: 'Front-end Unicorn',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+      photo: '',
+    });
+    // const inputValue = ev.target.value;
+    // const inputName = ev.target.name;
+
+    // setPerson({ ...person, [inputName]: inputValue });
+  };
+
   return (
     <div>
       <header className='header'>
@@ -53,7 +76,7 @@ function App() {
       </header>
       <main className='create-main'>
         <section className='preview'>
-          <button className='preview__btn js_card_reset_btn'>
+          <button onClick={handleReset} className='preview__btn js_card_reset_btn'>
             <i className='fa-regular fa-trash-can'></i>Reset
           </button>
 
@@ -98,7 +121,7 @@ function App() {
             </nav>
           </article>
         </section>
-        <form action='' className='form js_form'>
+        <form action='' className='form js_form' onSubmit={handleSubmit}>
           <fieldset className='form__design'>
             <div className='form__design__boxOne js_fieldset_boxOne'>
               <i className='fa-regular fa-object-ungroup ungroup_design form__design__ungroupIcon'></i>
