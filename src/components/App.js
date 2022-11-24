@@ -6,8 +6,8 @@ import logoFooter from '../images/logo_adalab_purple.png';
 function App() {
   const [person, setPerson] = useState({
     palette: '1',
-    name: 'Nombre Apellidos',
-    job: 'Front-end Unicorn',
+    name: '',
+    job: '',
     phone: '',
     email: '',
     linkedin: '',
@@ -30,18 +30,15 @@ function App() {
     ev.preventDefault();
     setPerson({
       palette: '1',
-      name: 'Nombre Apellidos',
-      job: 'Front-end Unicorn',
+      name: '',
+      job: '',
       phone: '',
       email: '',
       linkedin: '',
       github: '',
       photo: '',
     });
-    // const inputValue = ev.target.value;
-    // const inputName = ev.target.name;
-
-    // setPerson({ ...person, [inputName]: inputValue });
+   
   };
 
   return (
@@ -197,6 +194,7 @@ function App() {
                 id='fullname'
                 name='name'
                 placeholder='Ej: Sally hill'
+                value={person.name}
                 onChange={handleInput}
               />
               <label className='form__fill__label' htmlFor='job'>
@@ -208,6 +206,7 @@ function App() {
                 id='job'
                 name='job'
                 placeholder='Ej: Front-end unicorn'
+                value={person.job}
                 onChange={handleInput}
               />
               <h2 className='form__fill__label'>Imagen de perfil</h2>
@@ -237,6 +236,7 @@ function App() {
                 name='email'
                 placeholder='Ej: sally-hill@gmail.com'
                 pattern='^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$'
+                value={person.email}
                 onChange={handleInput}
               />
               <label className='form__fill__label' htmlFor='phone'>
@@ -249,6 +249,7 @@ function App() {
                 name='phone'
                 placeholder='Ej: 555-55-55-55'
                 pattern='[0-9]{3}-?[0-9]{2}-?[0-9]{2}-?[0-9]{2}'
+                value={person.phone}
                 onChange={handleInput}
               />
               <label className='form__fill__label' htmlFor='linkedin-url'>
@@ -261,6 +262,7 @@ function App() {
                 name='linkedin'
                 placeholder='Ej: linkedin.com/in/sally.hill'
                 pattern='^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$'
+                value={person.linkedin}
                 onChange={handleInput}
               />
               <label className='form__fill__label' htmlFor='github-url'>
@@ -273,6 +275,7 @@ function App() {
                 name='github'
                 placeholder='Ej: @sally-hill'
                 pattern='^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$'
+                value={person.github}
                 onChange={handleInput}
               />
             </section>
