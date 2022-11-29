@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import '../styles/App.scss';
-import logoPlain from '../images/logo_plain.png';
+
 import logoFooter from '../images/logo_adalab_purple.png';
+import callToApi from '../services/api';
+//Components
+import Header from './Header';
+import PreviewCard from './PreviewCard';
 
 function App() {
+  // State Variables
   const [person, setPerson] = useState({
     palette: '1',
     name: 'Nombre Apellidos',
@@ -14,7 +19,9 @@ function App() {
     github: '',
     photo: '',
   });
+  const [dataResult, setDataResult] = useState({});
 
+  // Events
   const handleInput = (ev) => {
     const inputValue = ev.target.value;
     const inputName = ev.target.name;
@@ -38,89 +45,26 @@ function App() {
       github: '',
       photo: '',
     });
-    // const inputValue = ev.target.value;
-    // const inputName = ev.target.name;
-
-    // setPerson({ ...person, [inputName]: inputValue });
   };
 
+  const handleShare = (ev) => {
+    ev.preventDefault();
+    callToApi(person).then((data) => {
+      console.log(data);
+      setDataResult(data);
+    });
+  };
+
+  //UseEffect
+
+  //Render
   return (
     <div>
-      <header className='header'>
-        <a href='./index.html' className='header__link'>
-          <img src={logoPlain} alt='Awesome profile cards' className='header__link__logo' />
-        </a>
-        <div className='stars_create'>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-          <div className='star'></div>
-        </div>
-      </header>
+      <Header></Header>
+
       <main className='create-main'>
-        <section className='preview'>
-          <button onClick={handleReset} className='preview__btn js_card_reset_btn'>
-            <i className='fa-regular fa-trash-can'></i>Reset
-          </button>
+        <PreviewCard person={person} handle={handleReset}></PreviewCard>
 
-          <article className='preview__article'>
-            <div className={`preview__box1 palette${person.palette}-color2 js_preview_box1`}>
-              <p className={`preview__box1__name palette${person.palette}-color1 js_preview_name`}>
-                {person.name !== '' ? person.name : 'Nombre Apellidos'}
-              </p>
-
-              <p className='preview__box1__job js_preview_job'>{person.job !== '' ? person.job : 'Front-end Unicorn'}</p>
-            </div>
-            <div className='preview__box2 js_preview_picture js_cardPic'></div>
-            <nav className='preview__nav'>
-              <ul className='preview__media'>
-                <li className={`preview__media__item palette${person.palette}-color3  js_media_item`}>
-                  <a href={`tel:+34 ${person.phone}`} className='preview__media__link js_preview_link' id='phone'>
-                    <i className='palette1-color1 js_card_icon fa-solid fa-mobile-screen-button'></i>
-                  </a>
-                </li>
-                <li className={`preview__media__item palette${person.palette}-color3  js_media_item`}>
-                  <a
-                    href={`mailto:${person.email}`}
-                    target='_blank'
-                    rel='noreferrer'
-                    className='preview__media__link js_preview_link'
-                    id='email'
-                  >
-                    <i className='palette1-color1 js_card_icon fa-regular fa-envelope'></i>
-                  </a>
-                </li>
-                <li className={`preview__media__item palette${person.palette}-color3  js_media_item`}>
-                  <a href={person.linkedin} target='_blank' rel='noreferrer' className='preview__media__link js_preview_link' id='linkedin'>
-                    <i className='palette1-color1 js_card_icon fa-brands fa-linkedin-in'></i>
-                  </a>
-                </li>
-                <li className={`preview__media__item palette${person.palette}-color3  js_media_item`}>
-                  <a href={person.github} target='_blank' rel='noreferrer' className='preview__media__link js_preview_link' id='github'>
-                    <i className='palette1-color1 js_card_icon fa-brands fa-github-alt'></i>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </article>
-        </section>
         <form action='' className='form js_form' onSubmit={handleSubmit}>
           <fieldset className='form__design'>
             <div className='form__design__boxOne js_fieldset_boxOne'>
@@ -284,7 +228,7 @@ function App() {
               <i className='fa-solid fa-chevron-up js_arrow upsideDown'></i>
             </div>
             <div className='form__share__boxTwo js_boxTwo js_share_box2'>
-              <button className='form__share__btn js_share_btn'>
+              <button className='form__share__btn js_share_btn' onClick={handleShare}>
                 <i className='fa-regular fa-address-card form__share__cardIcon'></i>
                 Crear tarjeta
               </button>
@@ -292,7 +236,7 @@ function App() {
           </fieldset>
           <section className='form__collapsible js_share_section'>
             <div className='form__collapsible__boxText js_box_share_card'></div>
-
+            <a href='/'> {dataResult.success ? dataResult.cardURL : dataResult.error}</a>
             <a href='/' className='form__collapsible__shareBtn js_twitter_btn'>
               <i className='fa-brands fa-twitter'></i>
               <span>Compartir en twitter</span>
