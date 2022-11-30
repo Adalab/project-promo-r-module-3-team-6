@@ -1,12 +1,12 @@
-function Fill(props){
-    const handleInput = (ev) => {
+function Fill(props) {
+  const handleInput = (ev) => {
     props.handleInput({
-      input:ev.target.name,
-       value: ev.target.value,
+      name: ev.target.name,
+      value: ev.target.value,
     });
   };
-    return(
-<fieldset className='form__fill'>
+  return (
+    <fieldset className='form__fill'>
       <div className='form__fill__boxOne js_fieldset_boxOne'>
         <i className='fa-regular fa-keyboard keyboard_fill form__fill__keyboard'></i>
         <legend className='form__fill__title'>Rellena</legend>
@@ -107,6 +107,6 @@ function Fill(props){
         />
       </section>
     </fieldset>
-    );
+  );
 }
 export default Fill;

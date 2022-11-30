@@ -1,7 +1,7 @@
 function PreviewCard(props) {
   const handleReset = (ev) => {
     ev.preventDefault();
-  props.handleReset();
+    props.handleReset();
   }
   return (
     <section className='preview'>
@@ -48,7 +48,7 @@ function PreviewCard(props) {
               </a>
             </li>
             <li className={`preview__media__item palette${props.person.palette}-color3  js_media_item`}>
-              <a href={props.person.github} target='_blank' rel='noreferrer' className='preview__media__link js_preview_link' id='github'>
+              <a href={`https://github.com/${props.person.github}`} target='_blank' rel='noreferrer' className='preview__media__link js_preview_link' id='github'>
                 <i className='palette1-color1 js_card_icon fa-brands fa-github-alt'></i>
               </a>
             </li>

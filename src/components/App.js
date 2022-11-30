@@ -26,7 +26,7 @@ function App() {
     setPerson({ ...person, [data.name]: data.value });
   };
 
- 
+
 
   const handleReset = () => {
     setPerson({
@@ -41,11 +41,10 @@ function App() {
     });
   };
 
-  const handleShare = (ev) => {
-    ev.preventDefault();
+  const handleShare = () => {
     callToApi(person).then((data) => {
-      console.log(data);
       setDataResult(data);
+      console.log(data);
     });
   };
 

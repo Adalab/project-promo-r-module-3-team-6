@@ -1,12 +1,12 @@
-function Design(props){
+function Design(props) {
   const handleInput = (ev) => {
     props.handleInput({
-      input:ev.target.name,
-       value: ev.target.value,
+      name: ev.target.name,
+      value: ev.target.value,
     });
   };
-    return(
-<fieldset className='form__design'>
+  return (
+    <fieldset className='form__design'>
       <div className='form__design__boxOne js_fieldset_boxOne'>
         <i className='fa-regular fa-object-ungroup ungroup_design form__design__ungroupIcon'></i>
         <legend className='form__design__title'>Diseña</legend>
@@ -65,6 +65,6 @@ function Design(props){
         </div>
       </section>
     </fieldset>
-    );
+  );
 }
 export default Design;
