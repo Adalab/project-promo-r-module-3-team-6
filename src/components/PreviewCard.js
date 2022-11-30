@@ -1,8 +1,11 @@
 function PreviewCard(props) {
-  console.log(props);
+  const handleReset = (ev) => {
+    ev.preventDefault();
+  props.handleReset();
+  }
   return (
     <section className='preview'>
-      <button onClick={props.handle} className='preview__btn js_card_reset_btn'>
+      <button onClick={handleReset} className='preview__btn js_card_reset_btn'>
         <i className='fa-regular fa-trash-can'></i>Reset
       </button>
 
