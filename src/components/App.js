@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import '../styles/App.scss';
 
-
 import callToApi from '../services/api';
 import Card from './Card';
 //Components
-
 
 function App() {
   // State Variables
@@ -17,7 +15,7 @@ function App() {
     email: '',
     linkedin: '',
     github: '',
-    photo: '',
+    photo: 'https://placekitten.com/200/300',
   });
   const [dataResult, setDataResult] = useState({});
 
@@ -25,8 +23,6 @@ function App() {
   const handleInput = (data) => {
     setPerson({ ...person, [data.name]: data.value });
   };
-
-
 
   const handleReset = () => {
     setPerson({
@@ -53,9 +49,13 @@ function App() {
   //Render
   return (
     <div>
-      <Card handleInput={handleInput} person={person} handleShare={handleShare} dataResult={dataResult} handleReset={handleReset}>
-
-      </Card>
+      <Card
+        handleInput={handleInput}
+        person={person}
+        handleShare={handleShare}
+        dataResult={dataResult}
+        handleReset={handleReset}
+      ></Card>
     </div>
   );
 }
