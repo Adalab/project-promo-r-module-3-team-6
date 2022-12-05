@@ -5,7 +5,7 @@ import defaultAvatar from '../images/default_image.jpg';
 import callToApi from '../services/api';
 import Card from './Card';
 //Components
-import GetAvatar from './GetAvatar';
+
 
 function App() {
   // State Variables
@@ -20,6 +20,8 @@ function App() {
     photo: { defaultAvatar },
   });
   const [dataResult, setDataResult] = useState({});
+  const [avatar, setAvatar] = useState('');
+ 
 
   // Events
   const handleInput = (data) => {
@@ -37,6 +39,7 @@ function App() {
       github: '',
       photo: '',
     });
+    setAvatar('');
   };
 
   const handleShare = () => {
@@ -46,8 +49,8 @@ function App() {
     });
   };
 
-  const handleAvatar = (avatar) => {
-    setPerson({ ...person, photo: avatar });
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
   };
 
   //Render
@@ -59,7 +62,8 @@ function App() {
         handleShare={handleShare}
         dataResult={dataResult}
         handleReset={handleReset}
-        handleAvatar={handleAvatar}
+        updateAvatar={updateAvatar}
+        avatar={avatar}
       ></Card>
     </div>
   );
