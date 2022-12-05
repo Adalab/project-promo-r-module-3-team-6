@@ -12,13 +12,26 @@ function Card(props) {
     <>
       <Header></Header>
 
-      <main className='create-main'>
-        <PreviewCard person={props.person} handleReset={props.handleReset}></PreviewCard>
+      <main className="create-main">
+        <PreviewCard
+          person={props.person}
+          handleReset={props.handleReset}
+        ></PreviewCard>
 
-        <form action='' className='form js_form' onSubmit={handleSubmit}>
-          <Design handleInput={props.handleInput} person={props.person}></Design>
-          <Fill handleInput={props.handleInput} person={props.person}></Fill>
-          <Share handleShare={props.handleShare} dataResult={props.dataResult}></Share>
+        <form action="" className="form js_form" onSubmit={handleSubmit}>
+          <Design
+            handleInput={props.handleInput}
+            person={props.person}
+          ></Design>
+          <Fill
+            handleInput={props.handleInput}
+            person={props.person}
+            handleAvatar={props.handleAvatar}
+          ></Fill>
+          <Share
+            handleShare={props.handleShare}
+            dataResult={props.dataResult}
+          ></Share>
         </form>
       </main>
       <Footer></Footer>

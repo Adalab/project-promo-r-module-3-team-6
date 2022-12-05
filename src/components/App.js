@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import '../styles/App.scss';
+import defaultAvatar from '../images/default_image.jpg';
 
 import callToApi from '../services/api';
 import Card from './Card';
 //Components
+import GetAvatar from './GetAvatar';
 
 function App() {
   // State Variables
@@ -15,7 +17,7 @@ function App() {
     email: '',
     linkedin: '',
     github: '',
-    photo: 'https://placekitten.com/200/300',
+    photo: { defaultAvatar },
   });
   const [dataResult, setDataResult] = useState({});
 
@@ -44,7 +46,9 @@ function App() {
     });
   };
 
-  //UseEffect
+  const handleAvatar = (avatar) => {
+    setPerson({ ...person, photo: avatar });
+  };
 
   //Render
   return (
@@ -55,6 +59,7 @@ function App() {
         handleShare={handleShare}
         dataResult={dataResult}
         handleReset={handleReset}
+        handleAvatar={handleAvatar}
       ></Card>
     </div>
   );
