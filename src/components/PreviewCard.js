@@ -25,7 +25,7 @@ function PreviewCard(props) {
             {props.person.job !== '' ? props.person.job : 'Front-end Unicorn'}
           </p>
         </div>
-        <Profile avatar={props.person.photo} />
+        <Profile avatar={props.avatar} />
 
         {/* <div
           className="preview__box2 js_preview_picture js_cardPic"

@@ -44,11 +44,14 @@ function Fill(props) {
           onChange={handleInput}
         />
         <h2 className="form__fill__label">Imagen de perfil</h2>
-        <div className="form__fill__boxThree">
-          <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} />
+       
+          
 
-          {/* <div className="form__fill__boxThree--1">
-            <label className="form__fill__label--cover" htmlFor="photo">
+           <div className="form__fill__boxThree">
+
+           <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} />
+          
+            {/* <label className="form__fill__label--cover" htmlFor="photo">
               Añadir imagen
             </label>
             <input
@@ -59,10 +62,10 @@ function Fill(props) {
               accept=".png, .svg, .webp, .jpg, .jpeg, .jfif, .pjpeg, .pjp"
               hidden
               onChange={handleAvatar}
-            /> 
-          </div>*/}
-          <div className="form__fill__boxThree--2 js_mini_image"></div>
-        </div>
+            />  */}
+          </div>
+          
+        
         <label className="form__fill__label" htmlFor="email">
           Email
         </label>

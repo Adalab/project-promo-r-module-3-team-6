@@ -18,7 +18,7 @@ function GetAvatar(props) {
     props.updateAvatar(image);
   };
 
-  const avatar = props.person.photo === '' ? defaultAvatar : props.person.photo;
+  const avatar = props.avatar === '' ? defaultAvatar : props.avatar;
   return (
     <>
       <div className="form__fill__boxThree--1">
@@ -48,13 +48,17 @@ function GetAvatar(props) {
           />
         </label>   </div>*/}
 
+
+
       <div
-        className="preview__box2 js_preview_picture js_cardPic"
+        className="form__fill__boxThree--2"
         style={{ backgroundImage: `url(${avatar})` }}
       ></div>
     </>
   );
 }
+
+
 
 /* GetAvatar.propTypes = {
   avatar: PropTypes.string.isRequired,

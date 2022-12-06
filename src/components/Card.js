@@ -16,6 +16,8 @@ function Card(props) {
         <PreviewCard
           person={props.person}
           handleReset={props.handleReset}
+          avatar={props.avatar}
+          updateAvatar={props.updateAvatar}
         ></PreviewCard>
 
         <form action="" className="form js_form" onSubmit={handleSubmit}>
@@ -27,6 +29,8 @@ function Card(props) {
             handleInput={props.handleInput}
             person={props.person}
             handleAvatar={props.handleAvatar}
+            updateAvatar={props.updateAvatar}
+            avatar={props.avatar}
           ></Fill>
           <Share
             handleShare={props.handleShare}
