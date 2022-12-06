@@ -1,12 +1,13 @@
 import '../styles/components/Header.scss';
 import logoPlain from '../images/logo_plain.png';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
     <header className='header'>
-      <a href='./index.html' className='header__link'>
+      <NavLink to='/' className='header__link'>
         <img src={logoPlain} alt='Awesome profile cards' className='header__link__logo' />
-      </a>
+      </NavLink>
       <div className='stars_create'>
         <div className='star'></div>
         <div className='star'></div>

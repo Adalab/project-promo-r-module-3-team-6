@@ -6,7 +6,7 @@
   justify-content: flex-end;
   align-items: center;
   border-bottom: solid 1px #d8d8d8;
-  @include tablet {
+  @media (min-width: 768px) {
     min-height: 92vh;
   }
   &__logo__img {
@@ -19,7 +19,7 @@
   }
   &__title {
     color: white;
-    font-family: $font-title;
+    font-family: 'Merriweather', serif;
     font-weight: bold;
     font-size: rem(19.2);
     margin-right: 26px;
@@ -31,7 +31,7 @@
   }
   &__text {
     color: rgb(251, 200, 243);
-    font-family: $font-main;
+    font-family: 'Merriweather', serif;
     font-size: rem(12.8);
     font-weight: 600;
     text-align: center;
@@ -55,7 +55,7 @@
     border-radius: 4px;
     padding: 10px;
     margin-bottom: 38.6px;
-    @include tablet {
+    @media (min-width: 768px) {
       width: 325px;
       border-radius: 5px;
       margin-bottom: 186px;
@@ -74,7 +74,7 @@
         color: rgb(251, 200, 243);
         font-size: rem(13);
         text-align: center;
-        @include tablet {
+        @media (min-width: 768px) {
           font-size: rem(16);
         }
       }
@@ -87,7 +87,7 @@
     width: 129px;
     height: 42px;
     color: rgb(132, 42, 119);
-    font-family: $font-main;
+    font-family: 'Open Sans', sans-serif;
     background-color: rgb(251, 200, 243);
     font-size: 16px;
     font-weight: 600;
@@ -100,14 +100,12 @@
 .icon_fill {
   position: relative;
   left: 8.5px;
-  @include tablet {
-  }
 }
 
 .keyboard_landing {
   color: white;
   font-size: rem(22.4);
-  @include tablet {
+  @media (min-width: 768px) {
     font-size: rem(28);
   }
 }
@@ -115,7 +113,7 @@
 .ungroup_landing {
   color: white;
   font-size: rem(22.4);
-  @include tablet {
+  @media (min-width: 768px) {
     font-size: rem(28);
   }
 }
@@ -123,7 +121,7 @@
 .nodes_landing {
   color: white;
   font-size: rem(22.4);
-  @include tablet {
+  @media (min-width: 768px) {
     font-size: rem(28);
   }
 }
