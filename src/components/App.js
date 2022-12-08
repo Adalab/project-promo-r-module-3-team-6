@@ -22,7 +22,27 @@ function App() {
   const [dataResult, setDataResult] = useState({});
   const [avatar, setAvatar] = useState('');
 
+  //Collapsables
+  const [designIsOpen, setDesignIsOpen] = useState(true);
+  const [fillIsOpen, setFillIsOpen] = useState(false);
+  const [shareIsOpen, setShareIsOpen] = useState(false);
+  const [arrowDesign, setArrowDesign] = useState('');
+  const [arrowFill, setArrowFill] = useState('');
+  const [arrowShare, setArrowShare] = useState('');
+
   // Events
+  const handleCollapseDesign = () => {
+    setDesignIsOpen(!designIsOpen);
+  };
+
+  const handleCollapseFill = () => {
+    setFillIsOpen(!fillIsOpen);
+  };
+
+  const handleCollapseShare = () => {
+    setShareIsOpen(!shareIsOpen);
+  };
+
   const handleInput = (data) => {
     setPerson({ ...person, [data.name]: data.value });
   };
@@ -56,10 +76,10 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Landing />} />
+        <Route path="/" element={<Landing />} />
 
         <Route
-          path='/card'
+          path="/card"
           element={
             <Card
               handleInput={handleInput}
@@ -69,6 +89,13 @@ function App() {
               handleReset={handleReset}
               updateAvatar={updateAvatar}
               avatar={avatar}
+              designIsOpen={designIsOpen}
+              handleCollapseDesign={handleCollapseDesign}
+              arrowDesign={arrowDesign}
+              fillIsOpen={fillIsOpen}
+              handleCollapseFill={handleCollapseFill}
+              shareIsOpen={shareIsOpen}
+              handleCollapseShare={handleCollapseShare}
             ></Card>
           }
         />

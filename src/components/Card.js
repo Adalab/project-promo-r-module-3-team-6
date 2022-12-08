@@ -22,6 +22,9 @@ function Card(props) {
 
         <form action="" className="form js_form" onSubmit={handleSubmit}>
           <Design
+            designIsOpen={props.designIsOpen}
+            arrowDesign={props.arrowDesign}
+            handleCollapseDesign={props.handleCollapseDesign}
             handleInput={props.handleInput}
             person={props.person}
           ></Design>
@@ -31,10 +34,14 @@ function Card(props) {
             handleAvatar={props.handleAvatar}
             updateAvatar={props.updateAvatar}
             avatar={props.avatar}
+            fillIsOpen={props.fillIsOpen}
+            handleCollapseFill={props.handleCollapseFill}
           ></Fill>
           <Share
             handleShare={props.handleShare}
             dataResult={props.dataResult}
+            shareIsOpen={props.shareIsOpen}
+            handleCollapseShare={props.handleCollapseShare}
           ></Share>
         </form>
       </main>
