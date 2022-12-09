@@ -26,25 +26,31 @@ function App() {
   const [designIsOpen, setDesignIsOpen] = useState(true);
   const [fillIsOpen, setFillIsOpen] = useState(false);
   const [shareIsOpen, setShareIsOpen] = useState(false);
-  const [arrowDesign, setArrowDesign] = useState('');
+  /* const [arrowDesign, setArrowDesign] = useState('');
   const [arrowFill, setArrowFill] = useState('');
-  const [arrowShare, setArrowShare] = useState('');
+  const [arrowShare, setArrowShare] = useState(''); */
 
   // Events
-  const handleCollapseDesign = () => {
-    setDesignIsOpen(!designIsOpen);
-  };
-
-  const handleCollapseFill = () => {
-    setFillIsOpen(!fillIsOpen);
-  };
-
-  const handleCollapseShare = () => {
-    setShareIsOpen(!shareIsOpen);
-  };
-
   const handleInput = (data) => {
     setPerson({ ...person, [data.name]: data.value });
+  };
+
+  const handleCollapse = (ev) => {
+    const sectionId = ev.currentTarget.id;
+    console.log(sectionId);
+    if (sectionId === 'design') {
+      setDesignIsOpen(true);
+      setFillIsOpen(false);
+      setShareIsOpen(false);
+    } else if (sectionId === 'fill') {
+      setDesignIsOpen(false);
+      setFillIsOpen(true);
+      setShareIsOpen(false);
+    } else if (sectionId === 'share') {
+      setDesignIsOpen(false);
+      setFillIsOpen(false);
+      setShareIsOpen(true);
+    }
   };
 
   const handleReset = () => {
@@ -90,12 +96,9 @@ function App() {
               updateAvatar={updateAvatar}
               avatar={avatar}
               designIsOpen={designIsOpen}
-              handleCollapseDesign={handleCollapseDesign}
-              arrowDesign={arrowDesign}
+              handleCollapse={handleCollapse}
               fillIsOpen={fillIsOpen}
-              handleCollapseFill={handleCollapseFill}
               shareIsOpen={shareIsOpen}
-              handleCollapseShare={handleCollapseShare}
             ></Card>
           }
         />

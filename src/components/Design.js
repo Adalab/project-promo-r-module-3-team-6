@@ -6,15 +6,6 @@ function Design(props) {
     });
   };
 
-  const handleCollapseDesign = () => {
-    props.handleCollapseDesign();
-    if (props.designIsOpen === true) {
-      return props.setArrowDesign('');
-    } else {
-      return props.setArrowDesign('upsideDown');
-    }
-  };
-
   const renderDesign = () => {
     if (props.designIsOpen === true) {
       return (
@@ -89,13 +80,19 @@ function Design(props) {
   };
 
   return (
-    <fieldset className="form__design" onClick={handleCollapseDesign}>
+    <fieldset
+      className="form__design"
+      id="design"
+      onClick={props.handleCollapse}
+    >
       <div className="form__design__boxOne js_fieldset_boxOne">
         <i className="fa-regular fa-object-ungroup ungroup_design form__design__ungroupIcon"></i>
         <legend className="form__design__title">Diseña</legend>
 
         <i
-          className={`fa-solid fa-chevron-up js_arrow ${props.arrowDesign}`}
+          className={`fa-solid fa-chevron-up js_arrow ${
+            props.designIsOpen ? '' : 'upsideDown'
+          }`}
         ></i>
       </div>
       {renderDesign()}
