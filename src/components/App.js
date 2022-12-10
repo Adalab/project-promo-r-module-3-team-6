@@ -26,9 +26,6 @@ function App() {
   const [designIsOpen, setDesignIsOpen] = useState(true);
   const [fillIsOpen, setFillIsOpen] = useState(false);
   const [shareIsOpen, setShareIsOpen] = useState(false);
-  /* const [arrowDesign, setArrowDesign] = useState('');
-  const [arrowFill, setArrowFill] = useState('');
-  const [arrowShare, setArrowShare] = useState(''); */
 
   // Events
   const handleInput = (data) => {
@@ -37,7 +34,6 @@ function App() {
 
   const handleCollapse = (ev) => {
     const sectionId = ev.currentTarget.id;
-    console.log(sectionId);
     if (sectionId === 'design') {
       setDesignIsOpen(true);
       setFillIsOpen(false);
@@ -70,11 +66,14 @@ function App() {
   const handleShare = () => {
     callToApi(person).then((data) => {
       setDataResult(data);
-      console.log(data);
     });
   };
 
   const updateAvatar = (avatar) => {
+    setPerson({
+      ...person,
+      photo: avatar,
+    });
     setAvatar(avatar);
   };
 
@@ -82,10 +81,10 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path='/' element={<Landing />} />
 
         <Route
-          path="/card"
+          path='/card'
           element={
             <Card
               handleInput={handleInput}
