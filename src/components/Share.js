@@ -43,7 +43,7 @@ function Share(props) {
     } else if (props.dataResult.error.includes('Mandatory fields')) {
       errorMessage = 'Asegúrate de rellenar todos los campos y adjuntar una imagen 😉';
     } else {
-      errorMessage = `${props.dataResult.eror}`;
+      errorMessage = `${props.dataResult.error}`;
     }
     return (
       <>
