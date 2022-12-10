@@ -64,7 +64,6 @@
   border-bottom: #d8d8d8 1px solid;
   margin-right: 19px;
   margin-left: 20px;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,9 +79,14 @@
     color: rgb(160, 30, 140);
     font-size: rem(14);
     font-weight: 600;
-    margin-top: rem(15);
+    // margin-top: rem(15);
     margin-bottom: rem(5);
     text-align: center;
+    width: rem(300);
+    line-height: rem(25);
+    @media (min-width: 1084px) {
+      font-size: rem(16);
+    }
   }
   &__cardLink {
     color: rgb(214, 100, 197);
