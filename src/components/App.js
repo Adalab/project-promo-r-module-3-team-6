@@ -1,24 +1,28 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import '../styles/App.scss';
 import defaultAvatar from '../images/default_image.jpg';
 import callToApi from '../services/api';
+import ls from '../services/localStorage';
+
 //Components
 import Card from './Card';
 import Landing from './Landing';
 
 function App() {
   // State Variables
-  const [person, setPerson] = useState({
-    palette: '1',
-    name: '',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: { defaultAvatar },
-  });
+  const [person, setPerson] = useState(
+    ls.get('data', {
+      palette: '1',
+      name: '',
+      job: '',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+      photo: { defaultAvatar },
+    })
+  );
   const [dataResult, setDataResult] = useState({});
   const [avatar, setAvatar] = useState('');
 
@@ -27,9 +31,12 @@ function App() {
   const [fillIsOpen, setFillIsOpen] = useState(false);
   const [shareIsOpen, setShareIsOpen] = useState(false);
 
+  //Effect
+
   // Events
   const handleInput = (data) => {
     setPerson({ ...person, [data.name]: data.value });
+    ls.set('data', person);
   };
 
   const handleCollapse = (ev) => {
@@ -81,10 +88,10 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Landing />} />
+        <Route path="/" element={<Landing />} />
 
         <Route
-          path='/card'
+          path="/card"
           element={
             <Card
               handleInput={handleInput}
