@@ -27,8 +27,6 @@ It was developed using:
 - **JSX**
 - **Sass**
 
-## Getting Started
-
 ## What can you do?
 
 - **Choose a color palette** that represents you!
