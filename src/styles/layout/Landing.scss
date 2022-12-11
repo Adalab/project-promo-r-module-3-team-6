@@ -102,26 +102,10 @@
   left: 8.5px;
 }
 
-.keyboard_landing {
+.landing_icon {
   color: white;
-  font-size: rem(22.4);
-  @media (min-width: 768px) {
-    font-size: rem(28);
-  }
-}
-
-.ungroup_landing {
-  color: white;
-  font-size: rem(22.4);
-  @media (min-width: 768px) {
-    font-size: rem(28);
-  }
-}
-
-.nodes_landing {
-  color: white;
-  font-size: rem(22.4);
-  @media (min-width: 768px) {
-    font-size: rem(28);
+  font-size: 20px;
+  @media (min-width: 1084px) {
+    font-size: 30px;
   }
 }
