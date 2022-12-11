@@ -4,47 +4,49 @@ import Design from './Design';
 import Fill from './Fill';
 import Share from './Share';
 import Footer from './Footer';
+
 function Card(props) {
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
+
   return (
     <>
-      <Header></Header>
+      <Header />
 
-      <main className="create-main">
+      <main className='create-main'>
         <PreviewCard
+          avatar={props.avatar}
           person={props.person}
           handleReset={props.handleReset}
-          avatar={props.avatar}
           updateAvatar={props.updateAvatar}
         ></PreviewCard>
 
-        <form action="" className="form js_form" onSubmit={handleSubmit}>
+        <form action='' className='form js_form' onSubmit={handleSubmit}>
           <Design
+            person={props.person}
             designIsOpen={props.designIsOpen}
             handleCollapse={props.handleCollapse}
             handleInput={props.handleInput}
-            person={props.person}
           ></Design>
           <Fill
-            handleInput={props.handleInput}
+            avatar={props.avatar}
             person={props.person}
+            fillIsOpen={props.fillIsOpen}
             handleAvatar={props.handleAvatar}
             updateAvatar={props.updateAvatar}
-            avatar={props.avatar}
-            fillIsOpen={props.fillIsOpen}
+            handleInput={props.handleInput}
             handleCollapse={props.handleCollapse}
           ></Fill>
           <Share
-            handleShare={props.handleShare}
             dataResult={props.dataResult}
             shareIsOpen={props.shareIsOpen}
+            handleShare={props.handleShare}
             handleCollapse={props.handleCollapse}
           ></Share>
         </form>
       </main>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }

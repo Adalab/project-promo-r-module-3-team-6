@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import '../styles/App.scss';
 import defaultAvatar from '../images/default_image.jpg';
+// Services
 import callToApi from '../services/api';
 import ls from '../services/localStorage';
-
 //Components
 import Card from './Card';
 import Landing from './Landing';
@@ -26,12 +26,10 @@ function App() {
   const [dataResult, setDataResult] = useState({});
   const [avatar, setAvatar] = useState('');
 
-  //Collapsables
+  // Collapse
   const [designIsOpen, setDesignIsOpen] = useState(true);
   const [fillIsOpen, setFillIsOpen] = useState(false);
   const [shareIsOpen, setShareIsOpen] = useState(false);
-
-  //Effect
 
   // Events
   const handleInput = (data) => {
@@ -68,6 +66,7 @@ function App() {
       photo: '',
     });
     setAvatar('');
+    ls.clear();
   };
 
   const handleShare = () => {
@@ -84,27 +83,26 @@ function App() {
     setAvatar(avatar);
   };
 
-  //Render
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route path='/' element={<Landing />} />
 
         <Route
-          path="/card"
+          path='/card'
           element={
             <Card
-              handleInput={handleInput}
-              person={person}
-              handleShare={handleShare}
-              dataResult={dataResult}
-              handleReset={handleReset}
-              updateAvatar={updateAvatar}
               avatar={avatar}
+              person={person}
+              dataResult={dataResult}
               designIsOpen={designIsOpen}
-              handleCollapse={handleCollapse}
               fillIsOpen={fillIsOpen}
               shareIsOpen={shareIsOpen}
+              handleInput={handleInput}
+              handleShare={handleShare}
+              handleReset={handleReset}
+              updateAvatar={updateAvatar}
+              handleCollapse={handleCollapse}
             ></Card>
           }
         />
