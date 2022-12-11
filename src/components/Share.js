@@ -26,6 +26,8 @@ function Share(props) {
 
           <a
             href={`https://twitter.com/intent/tweet?text=Mira%20mi%20super%20tarjeta%20de%20visita%20creada%20con%20StarCards&url=${props.dataResult.cardURL}`}
+            target='_blank'
+            rel='noopener noreferrer'
             className='form__collapsible__shareBtn js_twitter_btn'
           >
             <i className='fa-brands fa-twitter'></i>
