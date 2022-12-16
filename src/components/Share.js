@@ -20,7 +20,8 @@ function Share(props) {
       <>
         {renderShareDefault()}
         <section className='form__collapsible js_share_section'>
-          <a href={props.dataResult.cardURL} target='_blank' rel='noopener noreferrer'>
+          <h2 className='form__collapsible__cardUrl-message'>La tarjeta ha sido creada:</h2>
+          <a className='form__collapsible__cardUrl' href={props.dataResult.cardURL} target='_blank' rel='noopener noreferrer'>
             {props.dataResult.cardURL}
           </a>
 

@@ -60,41 +60,48 @@
   }
 }
 .form__collapsible {
-  height: 20vh;
+  height: 10vh;
   border-bottom: #d8d8d8 1px solid;
-  margin-right: 19px;
-  margin-left: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  &__cardText {
-    font-size: rem(18);
+  gap: 1rem;
+  color: rgb(153, 28, 134);
+
+  @media (min-width: 768px) {
+    height: 11vh;
+  }
+
+  &__cardUrl {
+    font-size: rem(12);
     font-weight: 600;
-    margin-bottom: rem(5);
     text-align: center;
     color: rgb(153, 28, 134);
+    @media (min-width: 768px) {
+      font-size: rem(18);
+    }
+
+    &-message {
+      font-size: rem(16);
+      font-weight: bolder;
+      @media (min-width: 768px) {
+        font-size: rem(18);
+      }
+    }
   }
+
   &__errorText {
-    color: rgb(160, 30, 140);
     font-size: rem(14);
     font-weight: 600;
-    // margin-top: rem(15);
     margin-bottom: rem(5);
     text-align: center;
-    width: rem(300);
+    width: rem(220);
     line-height: rem(25);
     @media (min-width: 1084px) {
       font-size: rem(16);
     }
   }
-  &__cardLink {
-    color: rgb(214, 100, 197);
-    font-size: rem(12);
-    width: 292px;
-    height: 17px;
-    margin: 5px 10px 10px 1px;
-  }
+
   &__shareBtn {
     background-color: $twitter-color;
     border-radius: 3px;
@@ -104,9 +111,6 @@
     padding: 10px;
     margin: 10px 0 30px;
   }
-}
-.hidden {
-  //display: none; //TO-DO: JS
 }
 .fa-twitter {
   margin-right: 10px;
