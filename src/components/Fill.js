@@ -76,7 +76,7 @@ function Fill(props) {
             type='url'
             id='linkedin-url'
             name='linkedin'
-            placeholder='Ej: linkedin.com/in/sally.hill'
+            placeholder='Ej: /sally.hill'
             pattern='^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$'
             value={props.person.linkedin}
             onChange={handleInput}
