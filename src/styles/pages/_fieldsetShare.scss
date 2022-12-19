@@ -60,7 +60,7 @@
   }
 }
 .form__collapsible {
-  height: 10vh;
+  height: 18vh;
   border-bottom: #d8d8d8 1px solid;
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@
   color: rgb(153, 28, 134);
 
   @media (min-width: 768px) {
-    height: 11vh;
+    height: 19vh;
   }
 
   &__cardUrl {
@@ -78,7 +78,7 @@
     text-align: center;
     color: rgb(153, 28, 134);
     @media (min-width: 768px) {
-      font-size: rem(18);
+      font-size: rem(14);
     }
 
     &-message {
